@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiCar Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .jumbotron {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 24px;
+        color: #343a40;
+      }
+
+      #controlPanel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      #arrowsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .arrow-row {
+        display: flex;
+        justify-content: center;
+      }
+
+      .arrow {
+        font-size: 60px;
+        color: #6c757d;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        margin: 10px;
+      }
+
+      .arrow:hover {
+        color: #007bff;
+      }
+
+
+      .stats-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stat {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .stat span {
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      #submitBtn {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #ffffff;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #submitBtn:hover {
+        background-color: #218838;
+      }
+
+      .icon {
+        color: #28a745;
+        font-size: 22px;
+        margin-right: 8px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>PiCar IoT Dashboard</h2>
+
+        <!-- Car Image -->
+        <img src="./media/FsH2N8kWAAAZKhO.jpg" alt="Car Image" class="img-fluid" width="600">
+
+       <!-- arrows-->
+        <div id="controlPanel">
+          <div id="arrowsContainer">
+            <div class="arrow-row">
+              <i id="upArrow" class="fas fa-arrow-up arrow"></i>
+            </div>
+            <div class="arrow-row">
+              <i id="leftArrow" class="fas fa-arrow-left arrow"></i>
+              <i id="rightArrow" class="fas fa-arrow-right arrow"></i>
+            </div>
+            <div class="arrow-row">
+              <i id="downArrow" class="fas fa-arrow-down arrow"></i>
+            </div>
+          </div>
+
+          <!-- Stats Panel -->
+          <div class="stats-panel">
+            <div class="stat">
+              <i class="fas fa-car icon"></i> Car Direction: <span id="direction">Backward</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-tachometer-alt icon"></i> Speed: <span id="speed">40</span>  
+            </div>
+            <div class="stat">
+              <i class="fas fa-road icon"></i> Distance Traveled: <span id="distance">15.42</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-thermometer-half icon"></i> Temperature of the Pi: <span id="temperature">44.79</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Section -->
+        <div>
+          <input id="message" type="text" placeholder="Message to Pi" class="form-control">
+          <button id="submitBtn" onclick="update_data()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
